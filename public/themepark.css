@@ -1,0 +1,87 @@
+button {
+    width: 70%;
+}
+
+table th td {
+
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+
+.selections {
+    position: relative; left: 0; top: 0;
+}
+
+.selectionButton {
+    position: absolute;
+    top: 85px;
+    left: 55px;
+}
+
+.selectionImage {
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: 1s;
+}
+
+.selectionImage:hover {
+    opacity: 0;
+}
+
+.scene {
+    position: relative;
+    font-size:18pt;
+    width: 280px;
+    height: 260px;
+    border: 1px solid #CCC;
+    margin: 40px 0;
+    perspective: 600px;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 260px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+}
+
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+    position: relative;
+    width: 280px;
+    height: 260px;
+    line-height: 260px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    backface-visibility: hidden;
+}
+
+.card__face--front {
+    background: blue;
+    word-wrap: break-word;
+}
+
+.card__face--back {
+    background: red;
+    font-size: 12px;
+    transform: rotateY(180deg);
+    opacity: 0;
+}

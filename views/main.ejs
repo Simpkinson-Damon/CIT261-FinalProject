@@ -1,0 +1,209 @@
+<% include partials/header %>
+<body>
+    <div>
+    </div>
+    <div align="center">
+        <img src="./images/disneyChars.jpg" alt="Disney Characters" height="412px" width="800px">
+        <h1><strong>Welcome to the Walt Disney World&#8482<br/>
+                Attraction Wait Time Display</strong></h1><hr><br/>
+    </div>
+    <div align="center">
+        <h3>Mouse Over The Park You Want and<br/>Push Button to Select:</h3>
+    </div>
+    <div class="row" align="center">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2 selections">
+            <button type="button" class="btn btn-primary btn-lg selectionButton" id="btnMK" onclick='getThemeParkInfo("MK")'>Magic Kingdom</button>
+            <h5></h5>
+            <img src="./images/park-Magic-Kingdom.jpg" alt="Magic Kingdom Park" class="selectionImage" height="190px" width="300px" onclick='getThemeParkInfo("MK")'>
+        </div>
+        <div class="col-sm-2 selections">
+            <button type="button" class="btn btn-primary btn-lg selectionButton" id="btnEPCOT" onclick='getThemeParkInfo("EPCOT")'>EPCOT</button>
+            <h5></h5>
+            <img src="./images/park-EPCOT.jpg" alt="EPCOT" class="selectionImage" height="190px" width="300px" onclick='getThemeParkInfo("EPCOT")'>
+        </div>
+        <div class="col-sm-2 selections">
+            <button type="button" class="btn btn-primary btn-lg selectionButton" id="btnAK" onclick='getThemeParkInfo("AK")'>Animal Kingdom</button>
+            <h5></h5>
+            <img src="./images/park-Animal-Kingdom.jpg" alt="Animal Kingdom" class="selectionImage" height="190px" width="300px" onclick='getThemeParkInfo("AK")'>
+        </div>
+        <div class="col-sm-2 selections">
+            <button type="button" class="btn btn-primary btn-lg selectionButton" id="btnHS" onclick='getThemeParkInfo("HS")'>Hollywood Studios</button>
+            <h5></h5>
+            <img src="./images/park-Hollywood-Studios.jpg" alt="Hollywood Studios" class="selectionImage" height="190px" width="300px" onclick='getThemeParkInfo("HS")'>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <br/>
+    <div class="row" align="center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4" id="chartLabel">
+            <h4>Wait Time Chart</h4>
+        </div>
+        <div class="col-sm-6" id="cardLabel">
+            <h4>Ride Information Cards</h4>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">
+            <canvas id="timeChart"></canvas>
+            <legend for="timeChart" id="timeLegend"></legend>
+        </div>
+        <div class="col-sm-2">
+            <div class="scene scene--card" id="underCard1">
+                <div class="card" id="card1">
+                    <div class="card__face card__face--front" id="cardFront1"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard4">
+                <div class="card" id="card4">
+                    <div class="card__face card__face--front" id="cardFront4"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard7">
+                <div class="card" id="card7">
+                    <div class="card__face card__face--front" id="cardFront7"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard10">
+                <div class="card" id="card10">
+                    <div class="card__face card__face--front" id="cardFront10"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard13">
+                <div class="card" id="card13">
+                    <div class="card__face card__face--front" id="cardFront13"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard16">
+                <div class="card" id="card16">
+                    <div class="card__face card__face--front" id="cardFront16"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard19">
+                <div class="card" id="card19">
+                    <div class="card__face card__face--front" id="cardFront19"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard22">
+                <div class="card" id="card22">
+                    <div class="card__face card__face--front" id="cardFront22"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="scene scene--card" id="underCard2">
+                <div class="card" id="card2">
+                    <div class="card__face card__face--front" id="cardFront2"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard5">
+                <div class="card" id="card5">
+                    <div class="card__face card__face--front" id="cardFront5"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard8">
+                <div class="card" id="card8">
+                    <div class="card__face card__face--front" id="cardFront8"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard11">
+                <div class="card" id="card11">
+                    <div class="card__face card__face--front" id="cardFront11"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard14">
+                <div class="card" id="card14">
+                    <div class="card__face card__face--front" id="cardFront14"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard17">
+                <div class="card" id="card17">
+                    <div class="card__face card__face--front" id="cardFront17"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard20">
+                <div class="card" id="card20">
+                    <div class="card__face card__face--front" id="cardFront20"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard23">
+                <div class="card" id="card23">
+                    <div class="card__face card__face--front" id="cardFront23"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="scene scene--card" id="underCard3">
+                <div class="card" id="card3">
+                    <div class="card__face card__face--front" id="cardFront3"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard6">
+                <div class="card" id="card6">
+                    <div class="card__face card__face--front" id="cardFront6"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard9">
+                <div class="card" id="card9">
+                    <div class="card__face card__face--front" id="cardFront9"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard12">
+                <div class="card" id="card12">
+                    <div class="card__face card__face--front" id="cardFront12"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard15">
+                <div class="card" id="card15">
+                    <div class="card__face card__face--front" id="cardFront15"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard18">
+                <div class="card" id="card18">
+                    <div class="card__face card__face--front" id="cardFront18"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard21">
+                <div class="card" id="card21">
+                    <div class="card__face card__face--front" id="cardFront21"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+            <div class="scene scene--card" id="underCard24">
+                <div class="card" id="card24">
+                    <div class="card__face card__face--front" id="cardFront24"></div>
+                    <div class="card__face card__face--back" id="cardBack1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+<% include partials/footer %>
